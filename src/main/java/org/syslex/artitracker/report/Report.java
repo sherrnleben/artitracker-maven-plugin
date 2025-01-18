@@ -1,4 +1,4 @@
-package org.syslex.artitracker.reporting;
+package org.syslex.artitracker.report;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -18,10 +17,13 @@ public class Report {
     public ArtifactIdentity artifact;
 
     @JsonProperty
-    public OffsetDateTime generatedAt;
+    public Programming programming;
 
     @JsonProperty
     public List<Dependency> dependencies;
+
+    @JsonProperty
+    public Generator generator;
 
     @JsonIgnore
     public String toJsonString() throws JsonProcessingException {

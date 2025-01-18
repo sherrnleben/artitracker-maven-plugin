@@ -1,12 +1,10 @@
-package org.syslex.artitracker.reporting;
+package org.syslex.artitracker.report;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.OffsetDateTime;
-import java.time.ZoneOffset;
 import java.util.List;
 
 public class ReportTest {
@@ -21,11 +19,12 @@ public class ReportTest {
         report.artifact.name = "test-artifact";
         report.artifact.version = "1.0.0";
 
-        report.generatedAt = OffsetDateTime.of(2024,12,22,22,37,14,0, ZoneOffset.UTC);
+//        report.generatedAt = OffsetDateTime.of(2024,12,22,22,37,14,0, ZoneOffset.UTC);
 
         final var result = report.toJsonString();
         Assertions.assertEquals(
-                "{\"artifact\":{\"group\":\"com.example\",\"name\":\"test-artifact\",\"version\":\"1.0.0\"},\"generatedAt\":\"2024-12-22T22:37:14Z\"}",
+//                "{\"artifact\":{\"group\":\"com.example\",\"name\":\"test-artifact\",\"version\":\"1.0.0\"},\"generatedAt\":\"2024-12-22T22:37:14Z\"}",
+                "{\"artifact\":{\"group\":\"com.example\",\"name\":\"test-artifact\",\"version\":\"1.0.0\"}}",
                 result
         );
     }

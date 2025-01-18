@@ -1,4 +1,4 @@
-package org.syslex.artitracker.reporting;
+package org.syslex.artitracker.report;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;

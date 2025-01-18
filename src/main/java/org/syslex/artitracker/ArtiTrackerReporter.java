@@ -1,12 +1,12 @@
 package org.syslex.artitracker;
 
-import org.syslex.artitracker.reporting.Report;
 import org.apache.maven.model.Model;
 import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+import org.syslex.artitracker.report.Report;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,7 +39,7 @@ public class ArtiTrackerReporter extends AbstractMojo {
         Model model = reader.read(new FileReader("pom.xml"));
 
         // build report
-        return ReportBuilder.buildReport(model);
+        return new ReportBuilder(model).buildReport();
     }
 
 }
